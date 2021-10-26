@@ -24,7 +24,9 @@ function Section(props) {
                         }
                     </ButtonGroup>
                 </Fade>
-                <DownArrow src="/images/down-arrow.svg" />
+                { props.title == "Model S" &&
+                    <DownArrow src="/images/down-arrow.svg" />
+                    }
             </Buttons>
         </Wrap>
     )
