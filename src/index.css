@@ -1,0 +1,28 @@
+*{
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: rgb(77, 76, 76);
+  font-size: 22px;
+  margin: 0px;
+  padding: 0px;
+}
+
+body{
+  width: 100%;
+  overflow-x: hidden;
+
+}
+
+@keyframes animateDown{
+  0%, 20%, 50%, 80%, 100% {
+    transform: translate(0);
+  }
+
+  40% {
+    transform: translateY(8px);
+  }
+
+  60% {
+    transform: translateY(5px);
+  }
+}
