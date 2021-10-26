@@ -1,24 +1,29 @@
 import React from 'react'
 import styled from "styled-components"
+import Fade from "react-reveal/Fade"
 
 function Section(props) {
     return (
         <Wrap bgImage={props.backgroundImg} >
-            <Itemtext>
-                <h1>{props.title}</h1>
-                <p>{props.description}</p>
-            </Itemtext>
+            <Fade bottom>
+                <Itemtext>
+                    <h1>{props.title}</h1>
+                    <p>{props.description}</p>
+                </Itemtext>
+            </Fade>
             <Buttons>
-                <ButtonGroup>
-                    <Leftbutton>
-                        {props.leftBtnText}
-                    </Leftbutton>
-                    {props.rightBtnText &&
-                        <RightButton>
-                            {props.rightBtnText}
-                        </RightButton>
-                    }
-                </ButtonGroup>
+                <Fade bottom>
+                    <ButtonGroup>
+                        <Leftbutton>
+                            {props.leftBtnText}
+                        </Leftbutton>
+                        {props.rightBtnText &&
+                            <RightButton>
+                                {props.rightBtnText}
+                            </RightButton>
+                        }
+                    </ButtonGroup>
+                </Fade>
                 <DownArrow src="/images/down-arrow.svg" />
             </Buttons>
         </Wrap>
