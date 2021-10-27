@@ -30,3 +30,12 @@ body{
 a{
   text-decoration: none;
 }
+
+.accBtn{
+  background-color: rgba(23, 26, 32, 0.95);
+  opacity: unset;
+}
+.leftBtn{
+  background-color: rgba(23, 26, 32, 0.8);
+  opacity: 0.85;
+}

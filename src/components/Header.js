@@ -9,7 +9,10 @@ import { useSelector } from "react-redux";
 function Header() {
     const [burgerStatus, setBurgerStatus] = useState(false);
     const cars = useSelector(selectCars)
-    console.log(cars);
+
+    function hello(){
+        window.blur() ;
+    }
 
     return (
         <Container>
@@ -17,21 +20,24 @@ function Header() {
                 <img src="/images/logo.svg" alt="" />
             </a>
             <Menu>
-                <a href="https://www.tesla.com/models">Model S</a>
-                <a href="https://www.tesla.com/model3">Model 3</a>
-                <a href="#">Model X</a>
-                <a href="#">Model Y</a>
-                <a href="#">Solar Roof</a>
-                <a href="#">Solar Panel</a>
+                <a href="https://www.tesla.com/models" target="blank" >Model S</a>
+                <a href="https://www.tesla.com/model3" target="blank" >Model 3</a>
+                <a href="https://www.tesla.com/modelx" target="blank" >Model X</a>
+                <a href="https://www.tesla.com/modely" target="blank" >Model Y</a>
+                <a href="https://www.tesla.com/solarroof" target="blank" >Solar Roof</a>
+                <a href="https://www.tesla.com/solarpanels" target="blank" >Solar Panels</a>
             </Menu>
             <RightMenu>
-                <a href="#">Shop</a>
-                <a href="#">Tesla Account</a>
+                <a href="https://shop.tesla.com/">Shop</a>
+                <a href="#">Account</a>
                 <CustomMenu onClick={()=>setBurgerStatus(true) }/>
             </RightMenu>
             <BurgerNav show={burgerStatus} > 
                 <CloseWrapper>
-                    <CustomClose onClick={()=>setBurgerStatus(false)} />
+                    <CustomClose onClick={()=> {
+                        setBurgerStatus(false); 
+                        }} 
+                        />
                 </CloseWrapper>
                 {window.innerWidth <=900 ? <Hello>
                 {cars && cars.map((car, index) => 
@@ -73,6 +79,11 @@ const Container = styled.div`
      left: 0;
      right: 0;
      z-index: 1;
+    a{
+        img{
+            height: 25px;
+        }
+    }
 
 `
 
@@ -83,11 +94,17 @@ const Menu = styled.div`
     flex: 1; 
 
     a{
-        font-size: 20px;
+        font-size: 15px;
         font-weight: 600;
-        text-transform: uppercase;
-        padding: 0px 10px;
+        padding: 5px 10px;
+        margin: 0px 5px;
         flex-wrap: nowrap;
+        border-radius: 50px;
+
+    }
+    a:hover {
+        background-color: #80808066;
+        transition: 0.3s;
     }
     @media(max-width: 1000px){
         a{
@@ -104,13 +121,19 @@ const RightMenu = styled.div`
     display: flex;
     align-items: center;
     a{
+        font-size: 17px;
         font-weight: 600;
-        text-transform: uppercase;
+        padding: 5px 15px;
         margin-right: 10px;
+        border-radius: 50px;
+    }
+    a:hover {
+        background-color: #80808066;
+        transition: 0.3s;
     }
     @media(max-width: 1000px){
         a{
-            font-size: 1px;
+            font-size: 15px;
         }
     }
 

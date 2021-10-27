@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from "styled-components"
 import Fade from "react-reveal/Fade"
+import { Opacity } from '@material-ui/icons'
 
 function Section(props) {
     return (
@@ -14,20 +15,38 @@ function Section(props) {
             <Buttons>
                 <Fade bottom>
                     <ButtonGroup>
-                        <Leftbutton>
+
+                        <Leftbutton className={props.title == "Accessories" ? "accBtn" : "leftBtn"} >
                             {props.leftBtnText}
                         </Leftbutton>
+
                         {props.rightBtnText &&
                             <RightButton>
                                 {props.rightBtnText}
                             </RightButton>
                         }
+
                     </ButtonGroup>
+                    
                 </Fade>
-                { props.title == "Model S" &&
-                    <DownArrow src="/images/down-arrow.svg" />
-                    }
+                {props.title == "Model S" &&
+                            <DownArrow src="/images/down-arrow.svg" />
+                        }
+
+
             </Buttons>
+            
+            {props.title == "Accessories" &&
+                <FooterDetails>
+                    <li>Tesla &copy; 2021</li>
+                    <li>Privacy & Legal</li>
+                    <li>Contact</li>
+                    <li>Careers</li>
+                    <li>News</li>
+                    <li>Engage</li>
+                    <li>Locations</li>
+                </FooterDetails>
+            }
         </Wrap>
     )
 }
@@ -64,7 +83,6 @@ const ButtonGroup = styled.div`
 `
 
 const Leftbutton = styled.div`
-    background-color: rgba(23, 26, 32, 0.8);
     height: 40px; 
     width: 256px;
     color: white;
@@ -72,11 +90,15 @@ const Leftbutton = styled.div`
     justify-content: center;
     align-items: center;
     border-radius: 100px;
-    opacity: 0.85;
+
     text-transform: uppercase;
     font-size: 14px;
     cursor: pointer;
     margin: 8px;
+    
+    @media (max-width: 768px){
+        width: 310px;
+    }
 
 `
 
@@ -88,11 +110,29 @@ const RightButton = styled(Leftbutton)`
 `
 
 const DownArrow = styled.img`
-    margin-top: 20px;
-    height: 30px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    height: 45px;
     overflow-x: hidden;
     animation: animateDown infinite 1.5s;
 
 `
 
-const Buttons = styled.div``
+const Buttons = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+`
+
+const ButtonWrap = styled.div``
+
+
+const FooterDetails = styled.div`
+    display: flex;
+    padding-bottom: 15px;
+    li{
+        list-style: none;
+        font-size: 15px;
+        margin: 8px;
+    }
+`
