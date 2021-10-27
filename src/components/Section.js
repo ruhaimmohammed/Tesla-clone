@@ -38,13 +38,17 @@ function Section(props) {
             
             {props.title == "Accessories" &&
                 <FooterDetails>
+                    <ol>
                     <li>Tesla &copy; 2021</li>
                     <li>Privacy & Legal</li>
                     <li>Contact</li>
                     <li>Careers</li>
+                    </ol>
+                    <ol>
                     <li>News</li>
                     <li>Engage</li>
                     <li>Locations</li>
+                    </ol>
                 </FooterDetails>
             }
         </Wrap>
@@ -130,9 +134,21 @@ const ButtonWrap = styled.div``
 const FooterDetails = styled.div`
     display: flex;
     padding-bottom: 15px;
+    ol{
+        display: flex;
+    }
     li{
         list-style: none;
-        font-size: 15px;
+        font-size: 17px;
         margin: 8px;
+    }
+    @media (max-width: 768px){
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        li{
+            font-size: 14.5px;
+        }
     }
 `
